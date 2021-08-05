@@ -27,6 +27,21 @@ app.get("/allbooks",(req,res)=>{
     })
     
 });
+app.get('/name',(req,res)=>{
+    Book.find((err,books)=>{
+    if(err){
+        console.log(err);
+    }else{
+        console.log(books);
+        books.forEach((book) => {
+            console.log(book.name);
+            // res.send(book.name) ;
+        });
+    } 
+  
+   });
+   
+})
 
 app.post('/login',(req,res)=>{
     if(!req.header('username')){
