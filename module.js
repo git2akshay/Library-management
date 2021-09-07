@@ -131,7 +131,9 @@ app.route("/book/:bookName")
 })
 
 .put((req,res)=>{
-    Book.updateOne({name:req.params.bookName},{name:req.body.name},{overwrite:true},
+    Book.updateOne({name:req.params.bookName},
+        {name:req.body.name},
+        {overwrite:true},
           (err)=>{
             if(!err){
                 res.send("Sucessfully updated")
